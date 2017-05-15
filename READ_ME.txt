@@ -27,5 +27,4 @@ Optional - Use Docker from with in container.
 If you have a need to create containers from with in another containers you should start this container with 
 a volume mounted to the host's docker.sock location. See the example below
 
-docker run -v /var/run/docker.sock:/var/run/docker.sock \
-           -ti some-image-name
+docker run -it -e DISPLAY -v /opt/dockermount/:/opt/dockermount/ -v /var/run/docker.sock:/var/run/docker.sock --net=host --name intellij-container intellij
