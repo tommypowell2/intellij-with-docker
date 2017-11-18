@@ -5,6 +5,7 @@ VOLUME /tmp/.X11-unix
 #COPY ideaIC-2017.1.2.tar.gz .
 COPY start-intellij.sh .
 COPY settings.jar .
+COPY READ_ME.txt .
 # Run a container with the following params
 # docker run -it -e DISPLAY -v /opt/dockermount/:/opt/dockermount/ -v /var/run/docker.sock:/var/run/docker.sock --privileged -v /dev/video0:/dev/video0 --net=host --name <container-name> <image-name>
 # This assumes you have a file with the results of xauth list written to a file called /opt/dockermount/xadd on your host
