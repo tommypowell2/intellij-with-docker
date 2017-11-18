@@ -1,18 +1,3 @@
-Install maven cert:
-
-This certificate goes into the truststore of the JRE being utlized by your Maven installation.
-Import the certificate into your JRE's trust store
-
-${JDK_HOME}/bin/keytool -import -alias iassoftware.com -file iassoftware.cer -keystore ${JRE_HOME}/lib/security/cacerts
-
-Notes:
-Every JRE contains a truststore named "cacerts"
-The default password for this store is "changeit"
-Every JDK has a JRE
-For installation using CMD in windows, see comment below
-
-
-
 Generate a new ssh key for bitbucket or whatever ...
 If you don't have an existing SSH key that you wish to use, generate one as follows:
 Open a terminal on your local computer and enter the following:
@@ -28,3 +13,7 @@ If you have a need to create containers from with in another containers you shou
 a volume mounted to the host's docker.sock location. See the example below
 
 docker run -it -e DISPLAY -v /opt/dockermount/:/opt/dockermount/ -v /var/run/docker.sock:/var/run/docker.sock --net=host --name intellij-container intellij
+
+Optional - Connect to host webcam
+Add --privileged -v /dev/video0:/dev/video0 to the docker run command
+Also run apt-get install libv4l-dev
